@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>誰是老大 — 大哥開講風</title>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      background: radial-gradient(circle at top center, #2b2b2b 0%, #101010 90%);
+      color: #f7f7f7;
+      padding: 40px 20px;
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    h3 {
+      text-align: center;
+      font-size: 52px;
+      font-weight: 900;
+      letter-spacing: 3px;
+      margin-bottom: 10px;
+      background: linear-gradient(90deg, #ffcc33, #ff3333);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 3px 6px rgba(0,0,0,0.4);
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 16px;
+      color: #f0d090;
+      margin-bottom: 40px;
+      letter-spacing: 2px;
+    }
+
+    /* 左右主要容器 */
+    .main {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    /* 左：影片區 */
+    .video-box {
+      flex: 0 0 560px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: radial-gradient(circle at center, rgba(255, 200, 0, 0.05), rgba(0,0,0,0.5));
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 0 40px rgba(255, 180, 0, 0.08);
+    }
+
+    iframe {
+      border-radius: 10px;
+      border: 2px solid rgba(255,255,255,0.15);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+      width: 100%;
+      height: 315px;
+    }
+
+    /* 右：歌詞卡片 */
+    .lyrics-box {
+      flex: 1;
+      background: rgba(255,255,255,0.08);
+      border-radius: 12px;
+      border-left: 6px solid #ffcc33;
+      padding: 25px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+      backdrop-filter: blur(4px);
+    }
+
+    .lyrics-box p {
+      margin-bottom: 12px;
+      font-size: 18px;
+    }
+
+    .lyrics-box b {
+      color: #ffd24d;
+      font-weight: 800;
+    }
+
+    .highlight {
+      color: #ff4a4a;
+      font-weight: 900;
+    }
+
+    /* 底部連結 */
+    .link {
+      display: block;
+      text-align: center;
+      margin-top: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      color: #ffcc33;
+      transition: color 0.2s;
+    }
+
+    .link:hover {
+      color: #ff6666;
+    }
+
+    /* 舞台聚光燈效果 */
+    .spotlight {
+      position: absolute;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 400px;
+      background: radial-gradient(ellipse at center, rgba(255,255,255,0.08), transparent 70%);
+      filter: blur(40px);
+      z-index: -1;
+    }
+
+    @media (max-width: 960px) {
+      .main { flex-direction: column; align-items: center; }
+      .video-box { width: 100%; max-width: 560px; }
+      .lyrics-box { width: 100%; margin-top: 20px; }
+      iframe { height: 280px; }
+    }
+
+    @media (max-width: 600px) {
+      h3 { font-size: 36px; }
+      .lyrics-box { font-size: 16px; padding: 18px; }
+      iframe { height: 220px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="spotlight"></div>
+
+  <h3>誰是老大…</h3>
+  <div class="subtitle">大哥開講 · 舞台上講真話</div>
+
+  <div class="main">
+    <!-- 左邊影片 -->
+    <div class="video-box">
+      <iframe src="https://www.youtube.com/embed/6uBSBV_zvYw?si=mQ4S1Gbve2K3pVG4"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen></iframe>
+    </div>
+
+    <!-- 右邊歌詞 -->
+    <div class="lyrics-box">
+      <p><b>作詞：</b>武雄　<b>作曲：</b>蘇麗</p>
+
+      <p>你是敢擱惦這展你大條 我保證馬上會乎你 <span class="highlight">死翹翹</span></p>
+      <p>我不是開玩笑 我看你真牙小 你咧靚啥小 你咧靚啥小</p>
+
+      <p>你落車頭攏無四界去探聽 這個角頭內底誰是做大兄</p>
+      <p>你這個不成囝 敢講話相昂聲 我咧屎你娘<br>
+      恐怕你著愛無性命</p>
+
+      <p><b>你若有影欲做流氓</b> 惦社會甲人搬挪 人面要有夠闊</p>
+      <p><b>你不通相過濫爛 愛知影誰是老大 誰是老大 誰是老大</b></p>
+
+      <p>你不通擱甲我蹊蹊咧咳 好話一向我是不講第二擺</p>
+      <p>你若不知厲害 連密你就愛呼人扛去埋 扛去埋</p>
+
+      <p>我看你目睭有影去糊著屎 你竟然敢說恁爸講話相囂掰</p>
+      <p>我咧屎你娘老叭母 好敢你擱講一擺 試看覓<br>
+      <span class="highlight">大家恐驚就要來相殺（相殺）相殺（相殺）</span></p>
+
+      <p><b>你若有影欲做流氓</b> 惦社會甲人搬挪 人面要有夠闊</p>
+      <p><b>你不通相過濫爛 愛知影誰是老大 誰是老大 誰是老大</b></p>
+    </div>
+  </div>
+
+  <a class="link" href="https://www.youtube.com/watch?v=6uBSBV_zvYw?si=mQ4S1Gbve2K3pVG4" target="_blank">🎤 在 YouTube 看老大開講</a>
+</body>
+
+</html>
