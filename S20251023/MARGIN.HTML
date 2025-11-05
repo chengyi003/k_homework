@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Robot Table - Animated Walking & Smoking</title>
+<style>
+body {
+    background: linear-gradient(135deg, #dbeafe, #f0f9ff);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* 主容器 */
+.container {
+    width: 80%;
+    margin: 5vh auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 機器人頭部 */
+.box-head {
+    width: 50%;
+    height: 200px;
+    background: linear-gradient(to bottom, #fff9c4, #fef08a);
+    border-radius: 20px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #555;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2vh;
+    overflow: hidden;
+    position: relative;
+}
+
+/* 表情左右移動 */
+.box-head span {
+    display: inline-block;
+    animation: sway 2s infinite alternate ease-in-out;
+}
+
+@keyframes sway {
+    0% { transform: translateX(-20px); }
+    50% { transform: translateX(20px); }
+    100% { transform: translateX(-20px); }
+}
+
+/* 機器人身體和手臂容器 */
+.body-container {
+    display: flex;
+    justify-content: center; /* 身體置中 */
+    align-items: flex-start;
+    margin-bottom: 2vh;
+    position: relative;
+}
+
+/* 左手貼近身體 */
+.box-lhand {
+    width: 12%;
+    height: 280px;
+    background: linear-gradient(to bottom, #a3a3a3, #78716c);
+    border-radius: 10px;
+    position: relative;
+    margin-right: -5px; /* 貼近身體 */
+    animation: handShake 0.6s infinite alternate ease-in-out;
+}
+
+/* 右手貼近身體 */
+.box-rhand {
+    width: 12%;
+    height: 280px;
+    background: linear-gradient(to bottom, #a3a3a3, #78716c);
+    border-radius: 10px;
+    position: relative;
+    margin-left: -5px; /* 貼近身體 */
+    animation: handShake 0.6s infinite alternate ease-in-out;
+}
+
+/* 右手抖動動畫 */
+@keyframes handShake {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
+}
+
+/* 手上的管子微晃 */
+.pipe {
+    position: absolute;
+    bottom: 25%;
+    right: -20px;
+    width: 50px;
+    height: 6px;
+    background: #444;
+    border-radius: 4px;
+    transform: rotate(20deg);
+    box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.3);
+    animation: pipeShake 0.6s infinite alternate ease-in-out;
+}
+
+@keyframes pipeShake {
+    0% { transform: rotate(20deg) translateY(0); }
+    50% { transform: rotate(20deg) translateY(-4px); }
+    100% { transform: rotate(20deg) translateY(0); }
+}
+
+/* 微微冒煙 */
+.smoke {
+    position: absolute;
+    right: -5px;
+    bottom: 40%;
+    width: 6px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    animation: smokeUp 2s infinite ease-in-out;
+}
+
+@keyframes smokeUp {
+    0% { opacity: 0.8; transform: translateY(0) scale(1); }
+    50% { opacity: 0.4; transform: translateY(-15px) scale(1.2); }
+    100% { opacity: 0; transform: translateY(-30px) scale(1.4); }
+}
+
+/* 身體 */
+.robot_body {
+    width: 60%;
+    height: 450px;
+    background: linear-gradient(to bottom, #a7f3d0, #6ee7b7);
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 腿部 */
+.legs-container {
+    display: flex;
+    width: 50%;
+    justify-content: space-between;
+}
+
+/* 左腿踏步 */
+.box-l {
+    width: 48%;
+    height: 160px;
+    background: linear-gradient(to bottom, #fcd34d, #f59e0b);
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+    color: #fff;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: legStepLeft 0.6s infinite alternate ease-in-out;
+}
+
+/* 右腿踏步 */
+.box-r {
+    width: 48%;
+    height: 160px;
+    background: linear-gradient(to bottom, #fcd34d, #f59e0b);
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+    color: #fff;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: legStepRight 0.6s infinite alternate ease-in-out;
+}
+
+/* 腿部踏步動畫 */
+@keyframes legStepLeft {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes legStepRight {
+    0% { transform: translateY(-8px); }
+    50% { transform: translateY(0); }
+    100% { transform: translateY(-8px); }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="box-head">
+        <span>( • ̀ω•́ ) 來根不?</span>
+    </div>
+
+    <div class="body-container">
+        <div class="box-lhand"></div>
+        <div class="robot_body">這是新堀</div>
+        <div class="box-rhand">
+            <div class="pipe"></div>
+            <div class="smoke">菸</div>
+        </div>
+    </div>
+
+    <div class="legs-container">
+        <div class="box-l">豆咖</div>
+        <div class="box-r">價喀</div>
+    </div>
+</div>
+
+</body>
+</html>

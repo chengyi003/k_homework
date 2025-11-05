@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>左右 DIV 滑動 + 居中</title>
+<style>
+    body {
+        font-family: sans-serif;
+        margin: 0;
+        background: #f7f7f7;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        height: 100vh;
+        gap: 20px;
+        padding-top: 40px;
+    }
+
+    .container {
+        display: flex;
+        gap: 20px;
+    }
+
+    .left, .right {
+        width: 200px;
+        height: 450px; /* 左右高度相同 */
+        border-radius: 10px;
+        position: relative;
+    }
+
+    .left {
+        background: #d0ebff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        z-index: 2;
+        padding-top: 20px;
+    }
+
+    .right {
+        background: #eee;
+        border: 3px solid #ccc;
+        overflow: hidden;
+        z-index: 1;
+    }
+
+    .left a {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        background: lightblue;
+        line-height: 100px;
+        text-decoration: none;
+        color: black;
+        font-size: 24px;
+        font-weight: bold;
+        border-radius: 10px;
+        position: absolute; /* 改成絕對定位，方便移動到右側 */
+        transition: transform 0.4s ease, background 0.4s ease;
+        z-index: 10;
+    }
+
+    .moved {
+        /* 移動到右側 DIV 中心 */
+        transform: translateX(220px) scale(1.2); /* 200px + gap 20px */
+        background: skyblue;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="left">
+        <a href="#" style="top:20px;">A</a>
+        <a href="#" style="top:140px;">B</a>
+        <a href="#" style="top:260px;">C</a>
+    </div>
+    <div class="right"></div>
+</div>
+
+<script>
+const links = document.querySelectorAll('.left a');
+
+links.forEach(link => {
+    link.addEventListener('mouseover', () => {
+        link.classList.toggle('moved'); // 切換滑動/彈回
+    });
+});
+</script>
+
+</body>
+</html>

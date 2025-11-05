@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS attr() 三欄示範</title>
+<style>
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+td {
+    border: 1px solid #666;
+    padding: 20px;
+    vertical-align: top;
+}
+
+/* 各欄寬度 */
+td:nth-child(1) { width: 30%; }
+td:nth-child(2) { width: 35%; }
+td:nth-child(3) { width: 35%; }
+
+/* ===== attr() 示範效果 ===== */
+
+/* 1️⃣ 使用 title 屬性 */
+.attr-title span::after {
+    content: "（" attr(title) "）";
+    color: blue;
+}
+
+/* 2️⃣ 使用 data-info 屬性 */
+.attr-data div::after {
+    content: " → " attr(data-info);
+    color: green;
+}
+
+/* 3️⃣ 使用 href 屬性 */
+.attr-href a::after {
+    content: " (" attr(href) ")";
+    font-size: 0.9em;
+    color: gray;
+}
+
+/* ===== 文字放大設定 ===== */
+
+/* 左欄（效果）+ 中欄（HTML結構） */
+.attr-title, .attr-data, .attr-href, .html-structure {
+    font-size: 1.25em;
+    line-height: 1.6em;
+}
+
+/* 中欄 HTML 區 */
+.html-structure {
+    background-color: #f3f3ff;
+    font-family: monospace;
+    text-align: left;
+}
+
+/* 右側 CSS 說明欄 */
+.css-desc {
+    background-color: #f9f9f9;
+    font-family: monospace;
+    text-align: left;
+    font-size: 1.25em;
+    line-height: 1.6em;
+}
+</style>
+</head>
+<body>
+<h1>CSS attr() 函數三欄示範</h1>
+<table>
+
+    <!-- title -->
+    <tr>
+        <td class="attr-title">
+            <h3>attr(title)</h3>
+            <p>
+                <span title="我是來自 title 屬性的文字">滑鼠移上我看看</span>
+            </p>
+        </td>
+        <td class="html-structure">
+<pre>
+&lt;p&gt;
+  &lt;span title="我是來自 title 屬性的文字"&gt;
+    滑鼠移上我看看
+  &lt;/span&gt;
+&lt;/p&gt;
+</pre>
+        </td>
+        <td class="css-desc">
+<pre>
+span::after {
+    content: "（" attr(title) "）";
+    color: blue;
+}
+/* 顯示元素的 title 屬性內容 */
+</pre>
+        </td>
+    </tr>
+
+    <!-- data-info -->
+    <tr>
+        <td class="attr-data">
+            <h3>attr(data-info)</h3>
+            <div data-info="這是自訂 data 屬性">商品 A</div>
+            <div data-info="限量發售中">商品 B</div>
+        </td>
+        <td class="html-structure">
+<pre>
+&lt;div data-info="這是自訂 data 屬性"&gt;商品 A&lt;/div&gt;
+&lt;div data-info="限量發售中"&gt;商品 B&lt;/div&gt;
+</pre>
+        </td>
+        <td class="css-desc">
+<pre>
+div::after {
+    content: " → " attr(data-info);
+    color: green;
+}
+/* 顯示 data-info 自訂屬性值 */
+</pre>
+        </td>
+    </tr>
+
+    <!-- href -->
+    <tr>
+        <td class="attr-href">
+            <h3>attr(href)</h3>
+            <a href="https://example.com">Example 網站</a>
+        </td>
+        <td class="html-structure">
+<pre>
+&lt;a href="https://example.com"&gt;
+  Example 網站
+&lt;/a&gt;
+</pre>
+        </td>
+        <td class="css-desc">
+<pre>
+a::after {
+    content: " (" attr(href) ")";
+    color: gray;
+}
+/* 自動顯示超連結的 href */
+</pre>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

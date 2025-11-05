@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 對每個 class 下的 <p> 設定顏色 */
+        
+        .a1>p {
+            color: orange;
+        } .a2>p {
+            color: red;
+        } .a3>p {
+            color: blue;
+        }
+
+        /* 其他文字可以用同層兄弟選擇器 */
+        .a1~div {
+            color: green;    ;
+        }
+
+        /* 如果你想要每個 div 後面的兄弟也有顏色 */
+        /* .a2 ~ div { color: lightblue; } */
+        /* .a3 ~ div { color: lightblue; } */
+    </style>
+</head>
+
+<body>
+    <div class="a1">
+        劉備
+        <p>劉禪</p>
+        <P>劉封</P>
+    </div>
+
+    <div class="a2">
+        關羽
+        <p>關平</p>
+        <p>關興</p>
+    </div>
+
+    <div class="a3">
+        張飛
+        <p>張苞</p>
+        <p>張張</p>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Pseudo-classes 示範</title>
+<style>
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+td {
+    border: 1px solid #666;
+    padding: 20px;
+    vertical-align: top;
+}
+
+/* Pseudo-classes 示範樣式 */
+
+/* hover */
+.pseudo-hover button:hover {
+    background-color: lightgreen;
+}
+
+/* first-child */
+.pseudo-first-child li:first-child {
+    color: red;
+}
+
+/* last-child */
+.pseudo-last-child li:last-child {
+    color: blue;
+}
+
+/* nth-child */
+.pseudo-nth-child li:nth-child(2) {
+    font-weight: bold;
+}
+
+/* 說明文字 */
+.css-desc {
+    background-color: #f9f9f9;
+    font-family: monospace;
+    text-align: left;
+    font-size: 1.1em; /* 放大字體 */
+}
+</style>
+</head>
+<body>
+<h1>CSS Pseudo-classes 示範</h1>
+<table>
+    <!-- hover -->
+    <tr>
+        <td class="pseudo-hover">
+            <h3>:hover</h3>
+            <button>滑鼠移上我</button>
+        </td>
+        <td class="css-desc">
+<pre>
+button:hover {
+    background-color: lightgreen;
+}
+/* 滑鼠移上時改變背景色 */
+</pre>
+        </td>
+    </tr>
+
+    <!-- first-child -->
+    <tr>
+        <td class="pseudo-first-child">
+            <h3>:first-child</h3>
+            <ul>
+                <li>第一項</li>
+                <li>第二項</li>
+                <li>第三項</li>
+            </ul>
+        </td>
+        <td class="css-desc">
+<pre>
+li:first-child {
+    color: red;
+}
+/* 選擇父元素的第一個子元素 */
+</pre>
+        </td>
+    </tr>
+
+    <!-- last-child -->
+    <tr>
+        <td class="pseudo-last-child">
+            <h3>:last-child</h3>
+            <ul>
+                <li>第一項</li>
+                <li>第二項</li>
+                <li>最後一項</li>
+            </ul>
+        </td>
+        <td class="css-desc">
+<pre>
+li:last-child {
+    color: blue;
+}
+/* 選擇父元素的最後一個子元素 */
+</pre>
+        </td>
+    </tr>
+
+    <!-- nth-child -->
+    <tr>
+        <td class="pseudo-nth-child">
+            <h3>:nth-child(2)</h3>
+            <ul>
+                <li>第一項</li>
+                <li>第二項</li>
+                <li>第三項</li>
+            </ul>
+        </td>
+        <td class="css-desc">
+<pre>
+li:nth-child(2) {
+    font-weight: bold;
+}
+/* 選擇父元素的第二個子元素 */
+</pre>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

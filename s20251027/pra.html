@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>滑到 ABC 切換下滑/彈回</title>
+<style>
+    body {
+        font-family: sans-serif;
+        margin: 0;
+        background: #f7f7f7;
+        text-align: center;
+    }
+
+    .top {
+        background: #d0ebff;
+        padding: 40px 0;
+        position: relative;
+        z-index: 2;
+    }
+
+    .bottom {
+        background: #eee;
+        height: 180px;
+        border-top: 3px solid #ccc;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+    }
+
+    .top a {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        background: lightblue;
+        line-height: 100px;
+        margin: 10px;
+        text-decoration: none;
+        color: black;
+        font-size: 24px;
+        font-weight: bold;
+        border-radius: 10px;
+        position: relative;
+        transition: transform 0.4s ease, background 0.4s ease;
+    }
+
+    .moved {
+        transform: translateY(180px); /* 滑下到下方區塊 */
+        background: skyblue;
+    }
+</style>
+</head>
+<body>
+
+<h2>滑到 ABC 切換下滑 / 彈回</h2>
+
+<div class="top">
+    <a href="#">A</a>
+    <a href="#">B</a>
+    <a href="#">C</a>
+</div>
+
+<div class="bottom"></div>
+
+<script>
+const links = document.querySelectorAll('.top a');
+
+links.forEach(link => {
+    link.addEventListener('mouseover', () => {
+        // 每次滑到就切換狀態
+        link.classList.toggle('moved');
+    });
+});
+</script>
+
+</body>
+</html>

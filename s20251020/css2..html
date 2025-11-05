@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Combinators 表格示範</title>
+<style>
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+td {
+    border: 1px solid #666;
+    padding: 20px;
+    vertical-align: top;
+}
+
+/* 1. Descendant Combinator (空格) */
+.descendant p {
+    color: blue;
+}
+
+/* 2. Child Combinator (>) */
+.child > h2 {
+    color: red;
+}
+
+/* 3. Next Sibling Combinator (+) */
+.next-sibling h2 + p {
+    color: green;
+}
+
+/* 4. Subsequent-Sibling Combinator (~) */
+.subsequent-sibling h2 ~ p {
+    font-weight: bold;
+}
+
+/* CSS 說明樣式 */
+.css-desc {
+    background-color: #f9f9f9;
+    font-family: monospace;
+    text-align: left;
+}
+</style>
+</head>
+<body>
+<h1>CSS Combinators 四種示範</h1>
+<table>
+    <!-- Descendant -->
+    <tr>
+        <td class="descendant">
+            <h3>Descendant (空格)</h3>
+            <p>段落 1</p>
+            <div>
+                <p>段落 2 (內層)</p>
+            </div>
+            <p>段落 3</p>
+        </td>
+        <td class="css-desc">
+<pre>
+.container p {
+    color: blue;
+}
+/* 選擇容器內所有後代 p */
+</pre>
+        </td>
+    </tr>
+
+    <!-- Child -->
+    <tr>
+        <td class="child">
+            <h3>Child (>)</h3>
+            <h2>標題 1 (直接子)</h2>
+            <div>
+                <h2>標題 2 (內層)</h2>
+            </div>
+            <p>段落</p>
+        </td>
+        <td class="css-desc">
+<pre>
+.container > h2 {
+    color: red;
+}
+/* 只選擇直接子 h2 */
+</pre>
+        </td>
+    </tr>
+
+    <!-- Next Sibling -->
+    <tr>
+        <td class="next-sibling">
+            <h3>Next Sibling (+)</h3>
+            <h2>標題</h2>
+            <p>段落 1 (緊接)</p>
+            <p>段落 2</p>
+        </td>
+        <td class="css-desc">
+<pre>
+h2 + p {
+    color: green;
+}
+/* 緊接在 h2 後的第一個 p */
+</pre>
+        </td>
+    </tr>
+
+    <!-- Subsequent Sibling -->
+    <tr>
+        <td class="subsequent-sibling">
+            <h3>Subsequent Sibling (~)</h3>
+            <h2>標題</h2>
+            <p>段落 1</p>
+            <p>段落 2</p>
+            <p>段落 3</p>
+        </td>
+        <td class="css-desc">
+<pre>
+h2 ~ p {
+    font-weight: bold;
+}
+/* h2 後所有 p 加粗 */
+</pre>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table {
+        width: 80%;
+        border-collapse: collapse;
+        text-align: center;
+
+    }
+
+    table,
+    th,
+    td {
+        border: 1px solid black;
+    }
+
+    .price::before {
+        content: "NT$ ";
+    }
+
+         .no::before {
+        content: "NO: ";
+    }
+
+    .price::after {
+        content: " 元";
+    }
+</style>
+
+<body>
+    <table>
+        <tr>
+            <th width="100" class="no">-</th>
+            <th width="15%">item</th>
+            <th>price</th>
+        </tr>
+        <tr>
+            <td  class="no">1</td>
+            <td>coffee</td>
+            <td class="price">100</td>
+        </tr>
+        <tr>
+            <td  class="no">2</td>
+            <td>water</td>
+            <td class="price">20</td>
+        </tr>
+        <tr>
+            <td  class="no">3</td>
+            <td>cc lemon</td>
+            <td class="price">150</td>
+        </tr>
+    </taable>
+
+</body>
+
+</html>

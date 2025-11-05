@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>inline / inline-block / block 對比</title>
+<style>
+a {
+    width: 100px;
+    height: 100px;
+    background: gray;
+}
+
+.inline a { display: inline; background: orange; }
+.inline-block a { display: inline-block; background: lightblue; }
+.block a { display: block; background: lightcoral; }
+</style>
+</head>
+<body>
+
+<h2>inline / inline-block / block 對比</h2>
+
+<div class="inline">
+    <h3>inline</h3>
+    <a href="">A</a><a href="">B</a><a href="">C</a>
+</div>
+
+<hr>
+
+<div class="inline-block">
+    <h3>inline-block</h3>
+    <a href="">A</a><a href="">B</a><a href="">C</a>
+</div>
+
+<hr>
+
+<div class="block">
+    <h3>block</h3>
+    <a href="">A</a><a href="">B</a><a href="">C</a>
+</div>
+
+</body>
+</html>
